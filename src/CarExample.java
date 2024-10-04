@@ -1,50 +1,52 @@
+import java.util.*;
 import model.Car;
-import model.Wheel;
+import model.ParkingLot;
 
 public class CarExample {
 
-    // + 1. Prepare this project and create some folder(s) and files (empty). Also
-    // rename the main file.
-    // + (almost) 2. Implement Car class. maybe some other classes.
-    // 3. Use the Car class and create instances of cars.
-    // 4. Implemented drive() method inside Car class that calls methods from other
-    // classes
-
     public static void main(String[] args) throws Exception {
 
-        // create a new instance of a car (Honda Accord)
-        Car hondaAccord = new Car(); // red
+        ParkingLot northeasternParking = new ParkingLot();
+        northeasternParking.setCapacity(100);
 
-        // We made Honda red
+        // Car #1
+        Car hondaAccord = new Car();
         hondaAccord.setColor("red");
-        hondaAccord.setManufacturer("Honda");
         hondaAccord.setModelName("Accord");
-        hondaAccord.printColor();
+        // Car #2
+        Car toyotaCorolla = new Car();
+        toyotaCorolla.setColor("blue");
+        toyotaCorolla.setModelName("Corolla");
 
-        // Add wheels to my Honda
-        Wheel wheelOne = new Wheel();
-        Wheel wheelTwo = new Wheel();
-        Wheel wheelThree = new Wheel();
-        Wheel fourthWheel = new Wheel();
-        wheelOne.setNumberOfBolts(5);
-        wheelTwo.setNumberOfBolts(5);
+        // Car #3
+        Car bmw = new Car();
+        bmw.setColor("yellow");
+        bmw.setModelName("3 Series");
 
-        hondaAccord.setFrontLeft(wheelOne);
-        hondaAccord.setFrontRight(wheelTwo);
-        hondaAccord.setRearLeft(fourthWheel);
-        hondaAccord.setRearRight(wheelThree);
+        northeasternParking.addACar(hondaAccord);
+        northeasternParking.addACar(bmw);
+        northeasternParking.addACar(toyotaCorolla);
 
-        hondaAccord.drive();
-        // hondaAccord.makeATurn("left");
+        // northeasternParking.removeACar(0);
 
-        // Car bmw = new Car(); // black
-        // bmw.setColor("Black");
-        // bmw.setModelName("740");
-        // bmw.setManufacturer("BMW");
-        // bmw.carryItems();
+        Car carFound = northeasternParking.findCarByColor("red");
+        if (carFound != null) {
+            System.out.println("We found " + carFound.getModelName() + " and it is " + carFound.getColor());
+        } else {
+            System.out.println("Car not found");
+        }
 
-        // Car toyota = new Car();
-        // toyota.makeATurn("right");
+        // northeasternParking.printNumberOfCars();
+        // northeasternParking.howManyEmptySpots();
+
+        // Parking Lot should asnwer these questions
+        // How many cars are on the parking lot? +
+        // Search for a car +
+        // Add car +
+        // Remove +
+        // Method -> isEmpty()? +
+        // Capacity?? +
+        //
 
     }
 }
