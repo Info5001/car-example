@@ -17,6 +17,13 @@ public class Car {
   Headlight leftHeadlight;
   Headlight rightHeadlight;
 
+  public Car(String c, String mn, String m, int y) {
+    color = c;
+    modelName = mn;
+    manufacturer = m;
+    year = y;
+  }
+
   public String getManufacturer() {
     return manufacturer;
   }
